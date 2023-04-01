@@ -23,6 +23,9 @@ jobs:
       uses: actions/setup-python@main
       with:
         python-version: 3.11
+    - name: "Set up requests"
+      run: |
+       pip install requests
     - name: "run main.py"
       env:
         bing_url: ${{secrets.bing_url}}
