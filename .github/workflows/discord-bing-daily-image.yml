@@ -1,0 +1,32 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: discord-bing-daily-image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+    - main
+  schedule:
+    - cron: "0 0 * * *"
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Set up Python
+      uses: actions/setup-python@main
+      with:
+        python-version: 3.11
+    - name: "run main.py"
+      env:
+        bing_url: ${{secrets.bing_url}}
+        bot_token: ${{secrets.bot_token}}
+        discord_url: ${{secrets.discord_url}}
+      run: |
+        python main.py
