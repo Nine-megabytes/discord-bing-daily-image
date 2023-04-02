@@ -13,11 +13,11 @@ bing_image_url = 'https://www.bing.com' + data['images'][0]['urlbase']+"_UHD.jpg
 # 添加时间戳
 time_stamp = time.time()
 utc_time = datetime.utcfromtimestamp(time_stamp)
-time1 = str(utc_time + timedelta(hours=8))
+time1 = str(utc_time + timedelta(hours=-7))
 
 # 定义要发送的消息
 message = {
-      "content": "@everyone This is the Bing Daily image"+"\n Time(UTC+8):"+time1,
+      "content": "@everyone This is the Bing Daily image"+"\n Time(UTC-7):"+time1,
       "embeds": [
         {
           "image": {
