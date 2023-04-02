@@ -11,6 +11,7 @@ data = json.loads(response.text)
 bing_image_url = 'https://www.bing.com' + data['images'][0]['urlbase']+"_UHD.jpg"
 bing_copyright = data['images'][0]['copyright']
 bing_copyrightlink = data['images'][0]['copyrightlink']
+bing_startdate = data['images'][0]['startdate']
 
 # 添加时间戳
 time_stamp = time.time()
@@ -30,7 +31,7 @@ message = {
     }
 
 message_bing_copyright = {
-    "content": bing_copyright + "\n" + bing_copyrightlink,
+    "content": bing_copyright + "\n" + bing_copyrightlink + "&filters=HpDate:\"" + bing_startdate + "_1600\"" + "&form=hpquiz"
 }
 
 # 定义请求头，包括机器人令牌和消息类型
