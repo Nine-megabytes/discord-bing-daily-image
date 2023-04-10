@@ -51,3 +51,4 @@ response_bing_copyright = requests.post(url, data=json.dumps(message_bing_copyri
 
 # 打印响应
 print(response.text)
+print(response_bing_copyright.text)
