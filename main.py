@@ -20,7 +20,7 @@ time1 = str(utc_time + timedelta(hours=+8))
 
 # 定义要发送的消息
 message = {
-      "content": "@everyone This is the Bing Daily image"+"\n Time(UTC+8):"+time1,
+      "content": "This is the Bing Daily image"+"\n Time(UTC+8):"+time1,
       "embeds": [
         {
           "image": {
