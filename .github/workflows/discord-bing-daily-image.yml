@@ -34,3 +34,11 @@ jobs:
         discord_url: ${{secrets.discord_url}}
       run: |
         python main.py
+    - name: Delete old workflow run using Personal Token
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.PAT }}
+        repository: ${{ github.repository }}
+        retain_days: 0
+        keep_minimum_runs: 0
+        delete_workflow_pattern: "discord-bing-daily-image"
